@@ -78,6 +78,31 @@ You can open the generated URLs in a browser to verify each environment.
 
 ---
 
+## Deployment Evidence
+
+These screenshots capture the workspace lifecycle and confirm that each environment is isolated and deployed correctly.
+
+### 1) Workspace creation
+
+![Workspace creation](screenshots/provisioning-environments.png)
+
+### 2) Terraform apply output (example)
+
+![Stage apply output](screenshots/environment-stage-provisioned.png)
+![Prod apply output](screenshots/prod-environment-created.png)
+
+### 3) Output value changes by workspace
+
+![output.tf](screenshots/output-tf-creation.png)
+
+### 4) Environment-specific websites
+
+![Dev website](screenshots/dev-environment-running.png)
+![Stage website](screenshots/staging-environment-screenshot.png)
+![Prod website](screenshots/prod-screenshot.png)
+
+
+
 ## Clean Up
 
 To avoid unnecessary AWS costs, destroy all resources after testing:
@@ -98,4 +123,5 @@ This will remove:
 ## Conclusion
 
 This project provides a practical, real-world example of managing **multi-environment infrastructure** using Terraform Workspaces. It serves as a solid foundation for learning Infrastructure as Code, AWS S3 automation, and environment-based deployment strategies.
+
 
