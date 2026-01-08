@@ -1,62 +1,100 @@
-Terraform Workspace S3 Project
-This project demonstrates how to use Terraform Workspaces to manage multi-environment deployments (Dev, Stage, Prod) and host a static website on AWS S3.
+# Terraform Workspace S3 Project
 
-🧭 Overview
-Terraform Workspaces allow us to manage multiple environments using the same configuration.
-In this project, each environment creates its own S3 bucket and hosts a unique static website.
+This project demonstrates how to use **Terraform Workspaces** to manage **multi-environment deployments (Dev, Stage, Prod)** using a single Terraform configuration. Each workspace provisions an **AWS S3 bucket** and hosts a **static website** with environment-specific content.
 
-Example Bucket Names
+---
+
+## Overview
+
+Terraform Workspaces enable environment isolation without duplicating configuration files.
+In this project:
+
+* Each workspace represents a separate environment
+* A unique S3 bucket is created per environment
+* Each environment serves its own static website
+
+### Example Bucket Names
+
+```
 nufan-dev-terraform-workspace-site
 nufan-stage-terraform-workspace-site
 nufan-prod-terraform-workspace-site
-Each environment has a distinct index.html file to identify which workspace is currently active.
+```
 
-⚙️ Project Structure
+Each environment includes a distinct `index.html` file to clearly indicate the active workspace.
 
+---
+
+## Project Structure
+
+```
 terraform-workspace-s3/
-│
-├── main.tf # Main configuration file for S3 bucket and website setup
-├── provider.tf # Specifies AWS as provider and region
-├── output.tf # Outputs website URLs for each environment
-├── create.sh # Script to automate workspace creation and deployment
-├── delete.sh # Script to destroy workspaces and clean up resources
+├── main.tf        # S3 bucket and static website configuration
+├── provider.tf    # AWS provider and region configuration
+├── output.tf      # Outputs website URLs per environment
+├── create.sh      # Automates workspace creation and deployment
+├── delete.sh      # Destroys workspaces and cleans up resources
 │
 └── index/
-├── dev/index.html
-├── stage/index.html
-└── prod/index.html
+    ├── dev/index.html
+    ├── stage/index.html
+    └── prod/index.html
+```
 
-🧑‍💻 Prerequisites
-Make sure you have:
+---
 
-AWS CLI installed and configured with an IAM user having S3 full access.
-Terraform CLI installed (v1.3+ recommended).
-🚀 How to Run
-Clone the repository and navigate into the project folder:
+## Prerequisites
 
-git clone https://github.com/Nufan-Noushad/terraform-workspace-s3.git
+Ensure the following are installed and configured:
+
+* **AWS CLI** with credentials for an IAM user that has S3 access
+* **Terraform CLI** (v1.3+ recommended)
+
+---
+
+## How to Run
+
+Clone the repository and navigate into the project directory:
+
+```bash
+git clone https://github.com/NufanNoushad/terraform-workspace-s3.git
 cd terraform-workspace-s3
-Make the shell script executable and run it:
+```
 
-chmod u+x create.sh
+Make the deployment script executable and run it:
+
+```bash
+chmod +x create.sh
 ./create.sh
-This script will:
+```
 
-Create Terraform workspaces (dev, stage, prod)
-Deploy a static website to AWS S3 for each workspace
-Output the S3 website URLs
-You can open the generated URLs in your browser to view the website for each environment.
+### What the script does
 
-🧹 Clean Up
-After testing, destroy all resources to avoid unnecessary AWS costs:
+* Creates Terraform workspaces (`dev`, `stage`, `prod`)
+* Deploys a static website to AWS S3 for each workspace
+* Outputs the S3 website URLs
 
-chmod u+x delete.sh
+You can open the generated URLs in a browser to verify each environment.
+
+---
+
+## Clean Up
+
+To avoid unnecessary AWS costs, destroy all resources after testing:
+
+```bash
+chmod +x delete.sh
 ./delete.sh
-This will delete:
+```
 
-All created S3 buckets
-Uploaded website files
-Associated Terraform workspaces
+This will remove:
 
-🏁 Conclusion
-This project is a simple and practical way to understand how Terraform manages multi-environment deployments using Workspaces. It’s an ideal starting point for those exploring IaC, AWS S3 automation, or multi-env pipelines.
+* All created S3 buckets
+* Uploaded website files
+* Associated Terraform workspaces
+
+---
+
+## Conclusion
+
+This project provides a practical, real-world example of managing **multi-environment infrastructure** using Terraform Workspaces. It serves as a solid foundation for learning Infrastructure as Code, AWS S3 automation, and environment-based deployment strategies.
