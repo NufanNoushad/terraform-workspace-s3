@@ -1,6 +1,6 @@
 # Terraform Workspace S3 Project
 
-This project demonstrates how to use **Terraform Workspaces** to manage **multi-environment deployments (Dev, Stage, Prod)** using a single Terraform configuration. Each workspace provisions an **AWS S3 bucket** and hosts a **static website** with environment-specific content.
+This project demonstrates the use of **Terraform Workspaces** to manage **multi-environment deployments (Dev, Stage, Prod)** using a single Terraform configuration. Each workspace provisions an **AWS S3 bucket** and hosts a **static website** with environment-specific content.
 
 ---
 
@@ -98,3 +98,4 @@ This will remove:
 ## Conclusion
 
 This project provides a practical, real-world example of managing **multi-environment infrastructure** using Terraform Workspaces. It serves as a solid foundation for learning Infrastructure as Code, AWS S3 automation, and environment-based deployment strategies.
+
